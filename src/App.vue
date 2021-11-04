@@ -1,7 +1,9 @@
 <template>
   <div class="cards-container">
     <card
-      :card="tarot.cards[0]"
+      v-for="card in tarot.cards"
+      :key="card.image"
+      :card="card"
       :frontCardUrl="tarot.imagesUrl"
       :backCardImg="tarot.imageBackCard"
     />
@@ -39,7 +41,9 @@ export default {
 }
 
 .cards-container {
+  padding: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
+  gap: 30px;
 }
 </style>

@@ -1,11 +1,12 @@
 <template>
   <div class="card" :class="{ flipped: isFlipped }">
-    <div class="front"></div>
-    <div class="back" @click="isFlipped = true"></div>
-    <div class="info-container">
-      <p class="title">{{ card.name }}</p>
-      <p class="description">{{ card.description }}</p>
+    <div class="front">
+      <div class="info-container">
+        <p class="title">{{ card.name }}</p>
+        <p class="description">{{ card.description }}</p>
+      </div>
     </div>
+    <div class="back" @click="isFlipped = true"></div>
   </div>
 </template>
 
@@ -70,9 +71,11 @@ export default {
   border-radius: 10px;
   width: 100%;
   height: 100%;
+  background-repeat: no-repeat;
 }
 
 .front {
+  height: 0;
   background-image: v-bind(frontImg);
 }
 
@@ -97,12 +100,13 @@ export default {
 
 .card.flipped {
   transform: rotateY(180deg) scaleX(-1);
-  height: 341px;
+  height: calc(341px + 125px);
 }
 
 .card.flipped .front {
   border-radius: 0;
   z-index: 1;
+  height: 75%;
 }
 
 .card.flipped .back {
