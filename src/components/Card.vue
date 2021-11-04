@@ -33,7 +33,7 @@ export default {
 
   data() {
     return {
-      isFlipped: false,
+      isFlipped: true,
     };
   },
 
@@ -45,6 +45,20 @@ export default {
     frontImg() {
       return `url(${this.frontCardUrl}${this.card.image})`;
     },
+  },
+
+  methods: {
+    resetCard() {
+      this.isFlipped = false;
+    },
+  },
+
+  beforeMount() {
+    this.emitter.on("start-game", this.resetCard);
+  },
+
+  beforeUnmount() {
+    this.emitter.off("start-game", this.resetCard);
   },
 };
 </script>
@@ -58,7 +72,7 @@ export default {
   transform-style: preserve-3d;
   border-radius: 5px;
   width: 162px;
-  height: 310px;
+  height: 309px;
 }
 
 .front,
@@ -72,6 +86,7 @@ export default {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
+  transition: all 250ms;
 }
 
 .front {
@@ -82,6 +97,10 @@ export default {
 .back {
   cursor: pointer;
   background-image: v-bind(bgImg);
+}
+
+.card:not(.flipped) .back:hover {
+  box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .info-container {
