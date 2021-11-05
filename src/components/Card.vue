@@ -108,7 +108,6 @@ export default {
   bottom: -30%;
   opacity: 0;
   transition: all 250ms;
-  transform: translateY(-100%);
   pointer-events: none;
 }
 
@@ -133,8 +132,19 @@ export default {
 }
 
 .card.flipped .info-container {
-  opacity: 1;
-  transform: translateY(0%);
   pointer-events: all;
+  animation: reveal 250ms forwards 500ms;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
 </style>
