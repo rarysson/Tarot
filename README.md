@@ -4,11 +4,13 @@ Um jogo de tarot. Projeto baseado no [desafio da Personare](https://github.com/P
 
 ## Tecnologia usada
 
--   [Vue 3](https://vuejs.org/)
--   [ESLint](https://eslint.org/)
--   [Jest](https://jestjs.io/)
+- [Vue 3](https://vuejs.org/)
+- [ESLint](https://eslint.org/)
+- [Jest](https://jestjs.io/)
 
 ## Rodando o App
+
+Para usar online acesse o link: [Tarot](https://rarysson.github.io/Tarot/)
 
 Para usar localmente basta clonar o projeto, e dentro da pasta executar os seguintes comandos:
 
